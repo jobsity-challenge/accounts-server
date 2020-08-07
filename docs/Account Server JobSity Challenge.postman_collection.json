@@ -1,0 +1,735 @@
+{
+	"info": {
+		"_postman_id": "d5ac2920-8a2c-4e28-8c28-de0425185029",
+		"name": "Account Server JobSity Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "296bfc30e0645fdb21931edd0e5e6079178273db0fe0450056e6d0ce73e7c9f6",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Jane Doe\",\n    \"type\": 1,\n    \"email\": \"jane@challenge.com\",\n    \"about\": \"I'm Jane\",\n    \"password\": \"challenge*2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/v1/accounts/register",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"accounts",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register account - User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jane Doe\",\n    \"type\": 1,\n    \"email\": \"jane@challenge.com\",\n    \"about\": \"I'm Jane\",\n    \"password\": \"challenge*2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/accounts/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "X-HTTP-Method, X-HTTP-Method-Override, X-Method-Override"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5184000; includeSubDomains"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e-3O1bQvJplj/Ef0XqP6qfQoByG9M\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Aug 2020 07:55:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"jane@challenge.com\"\n}"
+				},
+				{
+					"name": "Register account - Bot",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Blog Service\",\n    \"type\": 3,\n    \"email\": \"blog@challenge.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/accounts/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "X-HTTP-Method, X-HTTP-Method-Override, X-Method-Override"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5184000; includeSubDomains"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "108"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6c-fwO2aL9GJh3Lmqt9urSJKNeQz54\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Aug 2020 07:53:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"blog@challenge.com\",\n    \"password\": \"41163454bf945ecfacada284fce0a7be1a44a8f165662dd3f0d05f72af24c92e\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Account login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2b83aa54e76678bbaa293e539a72ea5f5ad6dd48eb85f56c9071500df75eea7b",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"web@challenge.com\",\n    \"password\": \"challenge*2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/v1/accounts/login",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"accounts",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Account login - User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jdoe@challenge.com\",\n    \"password\": \"challenge*2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/accounts/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "X-HTTP-Method, X-HTTP-Method-Override, X-Method-Override"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5184000; includeSubDomains"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "162"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a2-Df77jzncUWuI625V/seKXv5m53U\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Aug 2020 07:49:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": \"5f2d0542a6a79ff2b3d60c9b\",\n    \"type\": 1,\n    \"name\": \"John Doe\",\n    \"roles\": [\n        \"admin\",\n        \"user\"\n    ],\n    \"token\": \"6ebc1ca07f6b3480c76ac75d5a87a81452e1b0a004aa66463b44cd99e4dee527\"\n}"
+				},
+				{
+					"name": "Account login - Service",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"web@challenge.com\",\n    \"password\": \"challenge*2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/accounts/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "X-HTTP-Method, X-HTTP-Method-Override, X-Method-Override"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5184000; includeSubDomains"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "160"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a0-/GYgRh+0QqnZlm+LxoBarQtTYCM\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Aug 2020 07:46:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": \"5f2d0542a6a79ff2b3d60c9d\",\n    \"type\": 2,\n    \"name\": \"Chat Client\",\n    \"roles\": [\n        \"service\"\n    ],\n    \"token\": \"2b83aa54e76678bbaa293e539a72ea5f5ad6dd48eb85f56c9071500df75eea7b\"\n}"
+				},
+				{
+					"name": "Account login - Bot",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bot@challenge.com\",\n    \"password\": \"challenge*2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/accounts/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "X-HTTP-Method, X-HTTP-Method-Override, X-Method-Override"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5184000; includeSubDomains"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "155"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9b-tKb/oPjpOmomKt6k7XlESD6dujM\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Aug 2020 07:46:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": \"5f2d0542a6a79ff2b3d60c9e\",\n    \"type\": 3,\n    \"name\": \"Bot Server\",\n    \"roles\": [\n        \"bot\"\n    ],\n    \"token\": \"7cbd543a169a53e3d9f3900e330516379ba2ab1706ede12221c30b0d97a7aafe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Validate account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2b83aa54e76678bbaa293e539a72ea5f5ad6dd48eb85f56c9071500df75eea7b",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v1/accounts/validate",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"accounts",
+						"validate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Validate account",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/accounts/validate",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"validate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5184000; includeSubDomains"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"55-S5A4WL8o8/lLDy33pENA5AuM1cY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Aug 2020 07:50:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": \"5f2d0542a6a79ff2b3d60c9d\",\n    \"type\": 2,\n    \"name\": \"Chat Client\",\n    \"roles\": [\n        \"service\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Logout account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7cbd543a169a53e3d9f3900e330516379ba2ab1706ede12221c30b0d97a7aafe",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v1/accounts/logout",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"accounts",
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Logout account",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/accounts/logout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "X-HTTP-Method, X-HTTP-Method-Override, X-Method-Override"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5184000; includeSubDomains"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-zs6xmPhkQV98akhHAIVnejpro6c\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Aug 2020 07:51:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": \"5f2d0542a6a79ff2b3d60c9e\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "51bae153-b5c3-4613-a93e-92ff0bc29181",
+			"key": "BASE_URL",
+			"value": "http://127.0.0.1:3000"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
