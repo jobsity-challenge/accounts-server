@@ -14,7 +14,7 @@ import { ACCOUNT_TYPE } from "@/models/accounts.enum";
  * Body schema validation for account register
  */
 export const AccountRegisterValidation = Joi.object().keys({
-  name: Joi.string().email().required(),
+  name: Joi.string().required(),
   email: Joi.string().email().required(),
   password: Joi.string().allow("").optional(),
   about: Joi.string().allow("").optional(),
