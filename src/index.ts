@@ -17,5 +17,5 @@ const clusterServer = ClusterServer.setup(ServiceSettings);
 
 /* Run cluster with base routes */
 clusterServer.run({
-  "/accounts": AccountsRouter
+  "/v1/accounts": AccountsRouter
 });
