@@ -71,7 +71,7 @@ export class Account extends BaseModel {
   password!: string;
 
   @prop({ type: String })
-  roles!: string[];
+  roles?: string[];
 
   /**
    * Get the mongoose data model
