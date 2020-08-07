@@ -1,12 +1,11 @@
 /**
- * @Author: Reinier Millo Sánchez
- * @Date:   2020-03-24T04:10:10-05:00
- * @Email:  reinier.millo88@gmail.com
- * @Project: IKOABO Core Microservice API
- * @Filename: errors.ts
- * @Last modified by:   Reinier Millo Sánchez
- * @Last modified time: 2020-03-24T04:11:04-05:00
- * @Copyright: Copyright 2020 IKOA Business Opportunity
+ * Copyright (C) 2020 IKOA Business Opportunity
+ * All Rights Reserved
+ * Author: Reinier Millo Sánchez <reinier.millo88@gmail.com>
+ *
+ * This file is part of the IKOA Business Opportunity Core Server.
+ * It can't be copied and/or distributed without the express
+ * permission of the author.
  */
 
  export enum ERRORS {
