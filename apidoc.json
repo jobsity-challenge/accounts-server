@@ -1,0 +1,15 @@
+{
+  "name": "accounts-server-doc",
+  "version": "1.0.0",
+  "description": "JobSity Challenge Account Server API Documentation",
+  "title": "JobSity Challenge Account Server API Documentation",
+  "url": "https://account.example.com",
+  "header": {
+    "title": "Account Server API",
+    "filename": "./README.md"
+  },
+  "template": {
+    "withCompare": false,
+    "withGenerator": true
+  }
+}
