@@ -124,6 +124,27 @@ export class Account extends BaseModel {
     });
   }
 
+  /**
+   * Return the user roles, adding virtual roles
+   */
+  public getRoles?(): string[] {
+    /* Make a copy of the user roles */
+    const tmpRoles: string[] = Array.from(this.roles);
+
+    /* Add virtual roles based on type of user */
+    switch (this.type) {
+      case ACCOUNT_TYPE.AT_USER:
+        tmpRoles.push('user');
+        break;
+      case ACCOUNT_TYPE.AT_SERVICE:
+        tmpRoles.push('service');
+        break;
+      case ACCOUNT_TYPE.AT_BOT:
+        tmpRoles.push('bot');
+        break;
+    }
+    return tmpRoles;
+  }
 }
 
 /* Export Mongoose model */
