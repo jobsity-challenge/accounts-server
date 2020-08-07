@@ -14,6 +14,7 @@ import { ACCOUNT_ERROR } from "@/models/errors.enum";
 import { TokenModel, TokenDocument } from "@/models/tokens.model";
 import { Arrays } from "@/vendor/ikoabo/utils/arrays.util";
 import { AccountDocument } from "@/models/accounts.model";
+import { Objects } from "@/vendor/ikoabo/utils/objects.util";
 
 /**
  * Base authentication middleware
@@ -48,7 +49,7 @@ class Authentication {
   public doAuthenticate(role?: string[]) {
     return (req: Request, res: Response, next: NextFunction) => {
       /* Validate the authorization header for Bearer authorization */
-      const authorization: string[] = req.headers.authorization.split(" ");
+      const authorization: string[] = Objects.get(req, 'headers.authorization', '').toString().split(" ");
       if (authorization.length !== 2 || authorization[0] !== 'Bearer') {
         return next({ boError: ACCOUNT_ERROR.ERR_INVALID_ACCESS_TOKEN, boStatus: HTTP_STATUS.HTTP_UNAUTHORIZED });
       }
