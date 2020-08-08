@@ -127,6 +127,7 @@ router.post('/register',
  * @apiSuccess {String} user  Account unique identifier
  * @apiSuccess {String} type  Type of the authenticated account
  * @apiSuccess {String} name  Display name of the authenticated account
+ * @apiSuccess {String} about  Display about of the authenticated account
  * @apiSuccess {String} roles  Roles granted to the authenticated account
  * @apiSuccess {String} token  Generated access token
  * 
@@ -169,6 +170,7 @@ router.post('/login',
             user: Objects.get(res, 'locals.account.id'),
             type: Objects.get(res, 'locals.account.type'),
             name: Objects.get(res, 'locals.account.name'),
+            about: Objects.get(res, 'locals.account.about'),
             roles: res['locals'].account.getRoles(),
             token: token.token
           };
@@ -225,6 +227,7 @@ router.post('/logout',
  * @apiSuccess {String} user  Account unique identifier
  * @apiSuccess {String} type  Type of the authenticated account
  * @apiSuccess {String} name  Display name of the authenticated account
+ * @apiSuccess {String} about  Display about of the authenticated account
  * @apiSuccess {String} roles  Roles granted to the authenticated account
  * 
  * @apiError (Error status 401) {Number} error  Error number code
@@ -239,7 +242,8 @@ router.get('/validate',
       user: Objects.get(res, 'locals.token.account.id'),
       type: Objects.get(res, 'locals.token.account.type'),
       name: Objects.get(res, 'locals.token.account.name'),
-      roles: res['locals'].token.account.getRoles()
+      about: Objects.get(res, 'locals.token.account.about'),
+      roles: res['locals'].token.account.getRoles(),
     };
     next();
   },
