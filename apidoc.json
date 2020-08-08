@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "JobSity Challenge Account Server API Documentation",
   "title": "JobSity Challenge Account Server API Documentation",
-  "url": "https://account.example.com",
+  "url": "https://accounts.jobsity.ikoabo.com",
   "header": {
     "title": "Account Server API",
     "filename": "./README.md"
