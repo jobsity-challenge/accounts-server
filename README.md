@@ -51,6 +51,102 @@ To run the service there are some environment variables that can be used to conf
 * `INSTANCES`: Set the number o workers runing into the cluster (Default: 1)
 * `MONGODB_URI`: Set the MongoDB database connection URI (Default: mongodb://127.0.0.1:27017/accounts_srv)
 
+## Deploy on server
+
+### Run as service
+
+To allow the microservice to run as system service, first you must install `pm2`:
+
+```
+npm i -g pm2
+```
+
+After that, you must create the ecosystem file to launch the service:
+
+```
+nano ecosystem.config.js
+```
+
+The `ecosystem.config.js` file contains the following lines:
+
+```
+module.exports = {
+  apps : [{
+    name: 'ACCOUNTS-JOBSITY',
+    script: 'dist/index.js',
+    instances: 1,
+    autorestart: true,
+    watch: false,
+    env: {
+      NODE_ENV: 'development',
+      ENV: 'dev',
+      PORT: 8001,
+      INSTANCES: 2,
+      LOG: 'debug',
+      MONGODB_URI: 'mongodb://127.0.0.1:27017/srv_accounts'
+    },
+  }],
+};
+
+```
+
+To start the service run the folowing lines:
+
+```
+pm2 start ecosystem.config.js
+pm2 save
+```
+
+Now the accounts microservice is running as system service.
+
+### Configure Nginx web server
+
+To allow access the service from external,you must configure a new virtual host in the Nginx server:
+
+```
+nano /etc/nginx/sites-availables/accounts.jobsity.ikoabo.com
+```
+
+With the following code:
+
+```
+upstream mod-accounts-jobsity {
+  server localhost:8001;
+}
+ 
+server {
+  listen 80;
+  listen [::]:80;
+  server_name accounts.jobsity.ikoabo.com;
+
+  location / {
+    proxy_pass http://mod-account-jobsity/;
+    proxy_http_version 1.1;
+    proxy_cache_bypass $http_upgrade;
+    proxy_read_timeout 600s;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_set_header X-Caller-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
+```
+
+And then enable the virtual host:
+
+```
+ln -s /etc/nginx/sites-available/accounts.jobsity.ikoabo.com /etc/nginx/sites-enabled/accounts.jobsity.ikoabo.com
+```
+
+To allow secure access to the service, use Let's Encrypt certificates. Certificates can be installed with the `certbot` tool:
+
+```
+certbot --nginx -d accounts.jobsity.ikoabo.com
+```
+
+Now you can restart the Nginx server and test the microservice.
 
 ## Documentation
 
