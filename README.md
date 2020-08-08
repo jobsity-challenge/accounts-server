@@ -120,7 +120,7 @@ server {
   server_name accounts.jobsity.ikoabo.com;
 
   location / {
-    proxy_pass http://mod-account-jobsity/;
+    proxy_pass http://mod-accounts-jobsity/;
     proxy_http_version 1.1;
     proxy_cache_bypass $http_upgrade;
     proxy_read_timeout 600s;
