@@ -1,6 +1,97 @@
 define({ "api": [
   {
     "type": "post",
+    "url": "/accounts/info",
+    "title": "Retrieve accounts information",
+    "name": "InfoAccount",
+    "group": "Accounts",
+    "description": "<p>Retrieve accounts information for chat data hadling.</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Bearer &lt;access token&gt;</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Body request fields": [
+          {
+            "group": "Body request fields",
+            "type": "String[]",
+            "optional": false,
+            "field": "users",
+            "description": "<p>Users identifier to fetch data (<code>REQUIRED</code>)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "users",
+            "description": "<p>Accounts information</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "users.user",
+            "description": "<p>Account unique identifier</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "users.type",
+            "description": "<p>Type of the authenticated account</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "users.name",
+            "description": "<p>Display name of the authenticated account</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "users.about",
+            "description": "<p>Display about of the authenticated account</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error status 401": [
+          {
+            "group": "Error status 401",
+            "type": "Number",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Error number code</p> <p><code>1000</code> The access token isn't valid</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/routers/v1/accounts.router.ts",
+    "groupTitle": "Accounts"
+  },
+  {
+    "type": "post",
     "url": "/accounts/login",
     "title": "Login account",
     "name": "LoginAccount",
@@ -67,6 +158,13 @@ define({ "api": [
             "optional": false,
             "field": "name",
             "description": "<p>Display name of the authenticated account</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "about",
+            "description": "<p>Display about of the authenticated account</p>"
           },
           {
             "group": "Success 200",
@@ -298,6 +396,13 @@ define({ "api": [
             "optional": false,
             "field": "name",
             "description": "<p>Display name of the authenticated account</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "about",
+            "description": "<p>Display about of the authenticated account</p>"
           },
           {
             "group": "Success 200",
