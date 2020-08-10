@@ -154,3 +154,11 @@ The project its distributed with a `docs` folder. This folder contains the Postm
 ```bash
 npm run apidoc
 ```
+
+## Run environment
+
+To test this microservice it was deployed on test server:
+
+```
+https://accounts.jobsity.ikoabo.com
+```
