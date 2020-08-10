@@ -722,11 +722,166 @@
 					"body": "{\n    \"user\": \"5f2d0542a6a79ff2b3d60c9e\"\n}"
 				}
 			]
+		},
+		{
+			"name": "Get accounts information",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "c0343441b5c39e29602ec5d6598b956d7807314d41445fa5701f1da31763bc95",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"users\":[\n        \"5f2e5449ded67242020e75dd\",\n        \"5f2e5449ded67242020e75e1\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/v1/accounts/info",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"accounts",
+						"info"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get accounts information",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"users\":[\n        \"5f2e5449ded67242020e75dd\",\n        \"5f2e5449ded67242020e75e1\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/accounts/info",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 10 Aug 2020 05:03:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "206"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=2"
+						},
+						{
+							"key": "Vary",
+							"value": "X-HTTP-Method, X-HTTP-Method-Override, X-Method-Override"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5184000; includeSubDomains"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ce-JBoHoWl3rOdfiWEL7qRnBe/OAGw\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"users\": [\n        {\n            \"user\": \"5f2e5449ded67242020e75dd\",\n            \"name\": \"John Doe\",\n            \"about\": \"Default administrative user\",\n            \"type\": 1\n        },\n        {\n            \"user\": \"5f2e5449ded67242020e75e1\",\n            \"name\": \"Bot Server\",\n            \"about\": \"Bot Server account\",\n            \"type\": 3\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7c87af9b-9088-4819-bdbf-b5220e309ba8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "67e3af2b-4669-4b59-83d6-94657769c711",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"variable": [
 		{
-			"id": "51bae153-b5c3-4613-a93e-92ff0bc29181",
+			"id": "424ca662-1b09-472c-aab2-f5f2554febdf",
 			"key": "BASE_URL",
 			"value": "http://127.0.0.1:3000"
 		}
