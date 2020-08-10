@@ -74,7 +74,6 @@ module.exports = {
   apps : [{
     name: 'ACCOUNTS-JOBSITY',
     script: 'dist/index.js',
-    instances: 1,
     autorestart: true,
     watch: false,
     env: {
