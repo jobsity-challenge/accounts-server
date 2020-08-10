@@ -15,7 +15,7 @@ import { AccountCtrl } from '@/controllers/accounts.controller';
 import { TokenCtrl } from '@/controllers/tokens.controller';
 import { TokenDocument } from '@/models/tokens.model';
 import { Validator } from '@/vendor/ikoabo/middlewares/validator.middleware';
-import { AccountRegisterValidation, AccountLoginValidation } from '@/models/accounts.joi';
+import { AccountRegisterValidation, AccountLoginValidation, AccountsInfoValidation } from '@/models/accounts.joi';
 import { ACCOUNT_TYPE } from '@/models/accounts.enum';
 import { Token } from '@/vendor/ikoabo/utils/token.util';
 import { AccountDocument } from '@/models/accounts.model';
@@ -246,6 +246,51 @@ router.get('/validate',
       roles: res['locals'].token.account.getRoles(),
     };
     next();
+  },
+  ResponseHandler.success,
+  ResponseHandler.error
+);
+
+/**
+ * @api {post} /accounts/info Retrieve accounts information
+ * @apiName InfoAccount
+ * @apiGroup Accounts
+ *
+ * @apiDescription Retrieve accounts information for chat data hadling.
+ * 
+ * @apiHeader {String} authorization  Bearer \<access token\>
+ * 
+ * @apiParam (Body request fields) {String[]} users  Users identifier to fetch data (`REQUIRED`)
+ * 
+ * @apiSuccess {Object[]} users  Accounts information
+ * @apiSuccess {String} users.user  Account unique identifier
+ * @apiSuccess {Number} users.type  Type of the authenticated account
+ * @apiSuccess {String} users.name  Display name of the authenticated account
+ * @apiSuccess {String} users.about  Display about of the authenticated account
+ * 
+ * @apiError (Error status 401) {Number} error  Error number code
+ * 
+ * `1000` The access token isn't valid
+ */
+router.post('/info',
+  Validator.joi(AccountsInfoValidation),
+  AuthenticationCtrl.doAuthenticate(),
+  (req: any, res: Response, next: NextFunction) => {
+    /* Look for the users information */
+    AccountCtrl.fetchRaw({ _id: req.body['users'] })
+      .then((users: AccountDocument[]) => {
+        res.locals['response'] = {
+          users: users.map(value => {
+            return {
+              user: value.id,
+              name: value.name,
+              about: value.about,
+              type: value.type,
+            };
+          }),
+        };
+        next();
+      }).catch(next);
   },
   ResponseHandler.success,
   ResponseHandler.error

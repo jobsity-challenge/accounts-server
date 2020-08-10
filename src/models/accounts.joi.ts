@@ -28,3 +28,10 @@ export const AccountLoginValidation = Joi.object().keys({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
 });
+
+/**
+ * Body schema validation for accounts info request
+ */
+export const AccountsInfoValidation = Joi.object().keys({
+  users: Joi.array().items(Joi.objectId()).required(),
+});
