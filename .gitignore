@@ -3,6 +3,7 @@
 .vscode
 .gitmodules
 codes
+coverage
 build
 dist
 package-lock.json
